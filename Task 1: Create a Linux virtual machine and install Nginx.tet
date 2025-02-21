@@ -6,6 +6,8 @@ az vm create \
   --admin-username azureuser \
   --generate-ssh-keys
 
+az vm create  --resource-group "learn-7c7e5a6f-d0c9-49b8-bf04-790ffcb559e3"  --name my-vm  --public-ip-sku Standard  --image Ubuntu2204  --admin-username azureuser  --generate-ssh-keys
+
 
 az vm extension set \
   --resource-group "learn-57a461b9-204e-4130-ae83-0b309cd41de5" \
@@ -17,3 +19,4 @@ az vm extension set \
   --protected-settings '{"commandToExecute": "./configure-nginx.sh"}'
 
 
+az vm extension set  --resource-group "learn-7c7e5a6f-d0c9-49b8-bf04-790ffcb559e3"  --vm-name my-vm  --name customScript  --publisher Microsoft.Azure.Extensions  --version 2.1  --settings '{"fileUris":["https://raw.githubusercontent.com/MicrosoftDocs/mslearn-welcome-to-azure/master/configure-nginx.sh"]}'  --protected-settings '{"commandToExecute": "./configure-nginx.sh"}'
