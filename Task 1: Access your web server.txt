@@ -1,0 +1,10 @@
+IPADDRESS="$(az vm list-ip-addresses \
+  --resource-group "learn-7c7e5a6f-d0c9-49b8-bf04-790ffcb559e3" \
+  --name my-vm \
+  --query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" \
+  --output tsv)"    
+
+IPADDRESS="$(az vm list-ip-addresses --resource-group "learn-7c7e5a6f-d0c9-49b8-bf04-790ffcb559e3" --name my-vm --query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" --output tsv)"
+
+
+curl --connect-timeout 5 http://$IPADDRESS
