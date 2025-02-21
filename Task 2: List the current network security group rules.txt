@@ -1,0 +1,20 @@
+az network nsg list \
+  --resource-group "learn-7c7e5a6f-d0c9-49b8-bf04-790ffcb559e3" \
+  --query '[].name' \
+  --output tsv   
+
+az network nsg list --resource-group "learn-7c7e5a6f-d0c9-49b8-bf04-790ffcb559e3" --query '[].name' --output tsv
+
+az network nsg rule list \
+  --resource-group "learn-7c7e5a6f-d0c9-49b8-bf04-790ffcb559e3" \
+  --nsg-name my-vmNSG 
+
+az network nsg rule list --resource-group "learn-7c7e5a6f-d0c9-49b8-bf04-790ffcb559e3" --nsg-name my-vmNSG
+
+az network nsg rule list \
+  --resource-group "learn-7c7e5a6f-d0c9-49b8-bf04-790ffcb559e3" \
+  --nsg-name my-vmNSG \
+  --query '[].{Name:name, Priority:priority, Port:destinationPortRange, Access:access}' \
+  --output table    
+
+az network nsg rule list --resource-group "learn-7c7e5a6f-d0c9-49b8-bf04-790ffcb559e3" --nsg-name my-vmNSG --query '[].{Name:name, Priority:priority, Port:destinationPortRange, Access:access}' --output table
